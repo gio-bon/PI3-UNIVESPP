@@ -56,7 +56,8 @@ class Video(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('index.html', titulo='budex')
+    cursos = Curso.query.all()
+    return render_template('index.html', cursos=cursos, titulo='Cursos Univesp')
 
 # ROTAS_Usuários --------------------------------------------------------
 

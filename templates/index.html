@@ -11,6 +11,24 @@
         Seja bem vindo!
     </h2>
 
-
+<div class='columns is-multiline'>
+    {% for curso in cursos %}
+    {% if curso. ativo == True %}
+    <div class='columns is-multiline'>
+            <div class='column is-12'>
+              <div class="card">
+                <div class="card-content">
+            <p class="title" ><a href="{{ url_for('videos', curso_id=curso.id) }}">{{ curso.nome }}</a></p> 
+            <p>Descrição: {{ curso.descricao }}</p>
+            <p>Tecnologia: {{ curso.tecnologia }}</p>
+            <p>Autor: {{ curso.criador }}</p>
+            <p>Adicionado: {{ curso.created_at }}</p>
+            <p>Id: #{{ curso.id }}</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    {% endif %}
+    {% endfor %}
 </section>
 {% endblock %}
