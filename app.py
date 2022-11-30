@@ -230,4 +230,5 @@ def deletev(video_id):
     db.session.commit()
     return redirect(url_for('videos', curso_id=video_deletar.id_curso))
 
-app.run()
+if __name__ == '__main__':
+    app.run()
