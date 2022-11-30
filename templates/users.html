@@ -1,0 +1,40 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<head>
+<title>{{ titulo }}</title>
+</head>
+
+<section class="section is-medium">
+        <h1 class="title">Usuários</h1>
+        <h2 class="subtitle">
+            Veja todos usuários cadastrados!
+</h2>
+<div class='columns is-multiline'>
+{% for usuario in usuarios %}
+{% if usuario. ativo == True %}
+<div class='columns is-multiline'>
+<div class='column is-12'>
+        <div class="card">
+          <div class="card-content">
+        <p class="name">Nome: {{ usuario.nome }} {{ usuario.sobrenome }}</p>
+        <p>Email: {{ usuario.email }}</p>
+        <p>Idade: {{ usuario.idade }}</p>
+        <p>Entrou em: {{ usuario.created_at }}</p>
+        <p>Id: #{{ usuario.id }}</p>
+        <button class="button"><a href="{{ url_for('editu', user_id=usuario.id) }}">Editar</a></button>
+        <button class="button is-danger">
+                <form method="POST"
+                    action="{{ url_for('deleteu', user_id=usuario.id) }}">
+                    <input class="button is-danger" type="submit" value="Deletar"
+                    onclick="return confirm('Tem certeza que quer deletar seu usuário?')">
+                </form>
+        </button>
+</div>
+</div>
+</div>
+</div>
+{% endif %}
+{% endfor %}
+</section>
+{% endblock %}

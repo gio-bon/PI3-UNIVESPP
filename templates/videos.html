@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<head>
+<title>{{ curso.nome }}</title>
+</head>
+
+<section class="section is-medium">
+        <h1 class="title">{{ curso.nome }}</h1>
+        <h2 class="subtitle">
+            Veja todos vídeos do curso {{ curso.nome }}. <br>
+            {{ curso.descricao }}
+        </h2>
+
+<button class="button is-link"><a class="button is-link" href="{{ url_for('create_video', curso_id=curso.id) }}">Adicionar video</a></button>
+
+{% for video in videos %}
+{% if video.ativo == True and video.id_curso == curso.id %}
+        <p><b>#{{ video.ordem }}</b></p>
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/{{ video.link }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>Adicionado: {{ video.created_at }}</p>
+        <button class="button"><a href="{{ url_for('editv', video_id=video.id, id_curso=curso.id) }}">Editar</a></button>
+        <button class="button is-danger">
+                <form method="POST"
+                    action="{{ url_for('deletev', video_id=video.id) }}">
+                    <input class="button is-danger" type="submit" value="Deletar"
+                    onclick="return confirm('Tem certeza que quer deletar este vídeo?')">
+                </form>
+        </button>
+{% endif %}
+{% endfor %}
+</section>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<head>
+<title>{{ titulo }}</title>
+</head>
+
+<section class="section is-medium">
+    <h1 class="title">Editar video</h1>
+    <h2 class="subtitle">
+        Edite seu vídeo!
+    </h2>
+
+<h1 style="width: 100%">{% block title %} Include a new video {% endblock %}</h1>
+<form method="post">
+    <div class="field">
+        <label class="label" for="ordem">Ordem</label>
+        <div class="control">
+        <input class="input" type="number" name="ordem"
+               value={{ video.ordem }}
+               placeholder="Ordem">
+        </input>
+    </div>
+</div>
+
+    <div class="field">
+        <label class="label" for="link">Url do link</label>
+        <div class="control">
+        <input class="input" type="text" name="link"
+               value={{ video.link }}
+               placeholder="Url do link">
+        </input>
+    </div>
+</div>
+
+    <div class="field is-grouped">
+        <div class="control">
+          <input class="button is-link" type="submit" value="Enviar">
+        </div>
+    </div>
+</form>
+</section>
+{% endblock %}

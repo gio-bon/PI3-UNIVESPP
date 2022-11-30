@@ -1,0 +1,67 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<head>
+<title>{{ titulo }}</title>
+</head>
+
+<section class="section is-medium">
+    <h1 class="title">Criar usuário</h1>
+    <h2 class="subtitle">
+        Crie seu usuário!
+    </h2>
+
+<form method="post">
+    <div class="field">
+        <label class="label" for="nome">Nome</label>
+        <input class="input" type="text" name="nome"
+               placeholder="Nome">
+        </input>
+    </div>
+
+
+    <div class="field">
+        <label class="label" for="sobrenome">Sobrenome</label>
+        <div class="control">
+        <input class="input" type="text" name="sobrenome"
+               placeholder="Sobrenome">
+        </input>
+    </div>
+
+
+    <div class="field">
+        <label class="label" for="email">Email</label>
+        <div class="control">
+        <input class="input" type="email" name="email"
+               placeholder="Email">
+        </input>
+    </div>
+
+
+    <div class="field">
+        <label class="label" for="senha">Senha</label>
+        <div class="control">
+        <input class="input" type="password" name="senha"
+               placeholder="Senha">
+        </input>
+    </div>
+
+
+    <div class="field">
+        <label class="label" for="idade">Idade</label>
+        <div class="control">
+        <input class="input" type="number" name="idade"
+               placeholder="Idade">
+        </input>
+    </div>
+
+
+    <div class="field is-grouped">
+        <div class="control">
+        <input class="button is-link" type="submit" value="Enviar">
+        </div>
+    </div>
+
+</form>
+</section>
+{% endblock %}

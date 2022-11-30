@@ -1,0 +1,58 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<head>
+<title>{{ titulo }}</title>
+</head>
+
+<section class="section is-medium">
+    <h1 class="title">Criar curso</h1>
+    <h2 class="subtitle">
+        Crie seu curso!
+    </h2>
+
+<form method="post">
+    <div class="field">
+        <label class="label" for="nome">Nome</label>
+        <div class="control">
+            <input class="input" type="text" name="nome"
+                placeholder="Nome">
+            </input>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="descricao">Descricao</label>
+        <div class="control">
+        <input class="input" type="text" name="descricao"
+               placeholder="Descricao">
+        </input>
+    </div>
+</div>
+
+    <div class="field">
+        <label class="label" for="tecnologia">Tecnologia</label>
+        <div class="control">
+        <input class="input" type="text" name="tecnologia"
+               placeholder="Tecnologia">
+        </input>
+    </div>
+</div>
+
+    <div class="field">
+        <label class="label" for="criador">Criador</label>
+        <div class="control">
+        <input class="input" type="text" name="criador"
+               placeholder="Criador">
+        </input>
+    </div>
+</div>
+
+<div class="field is-grouped">
+    <div class="control">
+      <input class="button is-link" type="submit" value="Enviar">
+    </div>
+  </div>
+</form>
+</section>
+{% endblock %}

@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>{{ titulo }}</title>
+</head>
+
+<section class="section is-medium">
+    <h1 class="title">Usuário</h1>
+    <h2 class="subtitle">
+        Seu usuário!
+    </h2>
+
+    <h1>{% block title %} {{ user.nome }} {{ user.sobrenome }}{% endblock %}</h1>
+    <p><b>#{{ user.id }}</b></p>
+    <p class="name">{{ user.nome }} {{ user.sobrenome }}</p>
+    <p>{{ user.email }}</p>
+    <p>{{ user.idade }} years old.</p>
+    <p>Joined: {{ user.created_at }}</p>
+    <p><a href="{{ url_for('editu', user_id=user.id) }}">Editar</a></p>
+    <p>
+        <form method="POST"
+            action="{{ url_for('deleteu', user_id=user.id) }}">
+            <input type="submit" value="Deletar"
+            onclick="return confirm('Tem certeza que quer deletar seu usuário?')">
+        </form>
+    </p>
+</section>
+{% endblock %}

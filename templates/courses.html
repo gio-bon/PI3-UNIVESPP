@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+<title>{{ titulo }}</title>
+</head>
+<section class="section is-medium">
+        <h1 class="title">Cursos</h1>
+        <h2 class="subtitle">
+                Veja nossa grade de cursos da comunidade!
+        </h2>
+<div class='columns is-multiline'>
+{% for curso in cursos %}
+{% if curso. ativo == True %}
+<div class='columns is-multiline'>
+        <div class='column is-12'>
+          <div class="card">
+            <div class="card-content">
+        <p class="title" ><a href="{{ url_for('videos', curso_id=curso.id) }}">{{ curso.nome }}</a></p> 
+        <p>Descrição: {{ curso.descricao }}</p>
+        <p>Tecnologia: {{ curso.tecnologia }}</p>
+        <p>Autor: {{ curso.criador }}</p>
+        <p>Adicionado: {{ curso.created_at }}</p>
+        <p>Id: #{{ curso.id }}</p>
+        <button class="button"><a href="{{ url_for('editc', curso_id=curso.id) }}">Editar</a></button>
+        <button class="button is-danger">
+                <form method="POST"
+                        action="{{ url_for('deletec', curso_id=curso.id) }}">
+                        <input class="button is-danger" type="submit" value="Deletar"
+                        onclick="return confirm('Tem certeza que quer deletar este curso?')">
+                </form>
+        </button>
+</div>
+</div>
+</div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+
+{% endblock %}
